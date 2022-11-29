@@ -59,12 +59,60 @@
 // 決められた回数の処理を繰り返す。
 
 // { 繰り返す回数 (初期値) を設定する、条件を満たす場合の処理を記述する }
-let i;
-let num = 0;
-// ↓ i < 10だと 9までになってしまうので、11にすること!
-for(i = 1; i < 11; i++){
-  num = num + i;
-}
+// let i;
+// let num = 0;
+// // ↓ i < 10だと 9までになってしまうので、11にすること!
+// for(i = 1; i < 11; i++){
+//   num = num + i;
+// }
 
-alert('1から10まで足し算した結果は' + num + 'です');
-// iをconstで実行すると固まった。ReferenceErrorになる
+// alert('1から10まで足し算した結果は' + num + 'です');
+// iをconstで実行すると固まった。ReferenceErrorになる!
+
+// *再宣言をできるのは、varのみ!
+// var nickname = "taro";
+// console.log(nickname);
+
+// var nickname ="ichiro";
+// console.log(nickname);
+
+// letによる再宣言 :エラーを確認するため
+// let nickname = "taro";
+// console.log(nickname);
+
+// let nickname = "ichiro";
+// console.log(nickname);
+
+// constによる再宣言
+// const nickname = "taro";
+// console.log(nickname);
+
+// const nickname = "ichiro";
+// console.log(nickname);
+
+// 再宣言はvar, let, const それぞれを引数の前に書くこと。
+
+// 再代入 最初に宣言した後、引数のみを書いて内容を変更すること。
+// var nickname = "taro";
+// console.log(nickname);
+// nickname = "ichiro";
+// console.log(nickname);
+// セミコロンについては、書くなら書く。書かないなら書かない。どっちかにすること!
+
+// let nickname = "taro";
+// console.log(nickname);
+// nickname = "ichiro";
+// console.log(nickname);
+
+// varで宣言した後、同じ引数をletで宣言はできないよ!
+
+// const nickname = "taro";
+// console.log(nickname);
+// nickname = "ichiro";
+// console.log(nickname);
+
+// constは"定数"のため、値を変更することはできない。var, letは"変数"である!。
+
+// スコープ(有効範囲)について
+// グローバルスコープ
+// ローカルスコープ => 関数スコープ ブロックスコープ の2つある。
