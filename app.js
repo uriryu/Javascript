@@ -116,3 +116,52 @@
 // スコープ(有効範囲)について
 // グローバルスコープ
 // ローカルスコープ => 関数スコープ ブロックスコープ の2つある。
+
+// var str = "webcamp"; //グローバルスコープ
+
+// function foo() {
+//   console.log(str);
+//   var y = "hello"; //関数スコープ
+//   console.log(y);
+// }
+
+// foo();
+// 参照エラー
+// console.log(y); ここでは定義されていないことになる。
+
+// letのスコープ(ブロックスコープ)
+
+// function foo() {
+//   let x = "webcamp";
+//   {
+//     let y = "hello webcamp";
+//     console.log(y);
+//   }
+//   console.log(x);
+//   // console.log(y) yはブロック内のみ有効!ここは範囲外になる。
+// }
+
+// foo();
+
+// for文とletのスコープ(ブロックスコープ)を使ってみる!
+// for (let i = 0; i < 10; i++) {
+//  console.log(i);
+//  console.log(i); ここが正しい位置。
+// }
+
+// console.log(i); ここに書くと参照エラー!
+
+// ※constもletと同じくブロックスコープを使用する。
+
+var str = "webcamp";
+
+function foo () {
+  // console.log(str); ここは宣言されたのみの変数で代入されていないことになる。
+  // 厳密には、varによって宣言された変数に初期値を入れない場合、"undefined"が初期値として代入される。
+  var str = "dmm webcamp";
+  console.log(str);
+}
+
+foo();
+// グローバルスコープのstrと関数スコープのstrが存在するが
+// console.log(str);が関数内で使用されているため、関数スコープのstrが参照される。
