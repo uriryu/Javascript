@@ -153,15 +153,115 @@
 
 // ※constもletと同じくブロックスコープを使用する。
 
-var str = "webcamp";
+// var str = "webcamp";
 
-function foo () {
-  // console.log(str); ここは宣言されたのみの変数で代入されていないことになる。
-  // 厳密には、varによって宣言された変数に初期値を入れない場合、"undefined"が初期値として代入される。
-  var str = "dmm webcamp";
-  console.log(str);
-}
+// function foo () {
+//   // console.log(str); ここは宣言されたのみの変数で代入されていないことになる。
+//   // 厳密には、varによって宣言された変数に初期値を入れない場合、"undefined"が初期値として代入される。
+//   var str = "dmm webcamp";
+//   console.log(str);
+// }
 
-foo();
+// foo();
 // グローバルスコープのstrと関数スコープのstrが存在するが
 // console.log(str);が関数内で使用されているため、関数スコープのstrが参照される。
+
+// letやconstの場合も巻き上げは起こる。
+// しかし、変数の初期化を行わず、宣言のみの場合、それを参照すると
+// 「Uncaught ReferenceError: Cannot access '変数名' before initialization」という エラー になる。
+
+// ・引数と戻り値
+
+// let alertString = addString("Webcamp");
+// alert(alertString);
+  // 引数の名前は、わかりやすいものなら何でも可。伝わるものにすること!
+// function addString(strA) {
+//   let addStr = "Hello " + strA;
+//   return addStr;
+// }
+
+// ・入力ダイアログで値を入力する
+// let promptStr = prompt('何か好きな文字を入力してください。');
+// alert(promptStr);
+
+  // prompt()関数の戻り値として、入力したものが、promptStrへ代入される→alertで出力される。
+  // prompt()関数は入力欄に加え、OKとキャンセル両方でる。
+
+
+// prompt()関数でじゃんけんを作る!
+let user_hand = prompt('じゃんけんの手をグー、チョキ、パーから選んでください。');
+// alert('あなたの選んだ手は' + user_hand + "です。");
+while ((user_hand != "グー") && (user_hand != "チョキ") && (user_hand != "パー") && (user_hand != null)){
+  // キャンセルボタンの判定には、nullを用いる
+  alert('グー・チョキ・パーのいずれかを入力してください');
+  user_hand = prompt('じゃんけんの手をグー、チョキ、パーから選んでください。');
+}
+// while文は条件が真である間は繰り返し処理が行われる。
+  // 今回はグー・チョキ・パー・キャンセルでない場合、以下の処理を実行する。
+
+let js_hand = getJShand();
+let judge = winLose(user_hand, js_hand);
+
+// グーチョキパーとキャンセルだった場合さらに、分岐でキャンセルじゃない場合とキャンセルの場合で分ける。
+if (user_hand != null){
+alert('あなたの選んだ手は' + user_hand + 'です。\nJavaScriptの選んだ手は' + js_hand + 'です。\n結果は' + judge + 'です。');
+// \nは改行。
+} else {
+  alert("またチャレンジしてね");
+}
+
+// ランダムでじゃんけんの手を作成する関数
+function getJShand(){
+  let js_hand_num = Math.floor( Math.random() * 3 );
+    // 範囲を決めた乱数を作るときには、「Math.random()」に最大値を掛けることで実現します。
+    // 「0 〜 2」の範囲を作りたい場合、最大値の2をそのまま掛けてしまうと「0 〜 1」の範囲になってしまう。
+    // 最大値に1を足して「3」を掛けることで、「0 〜 2」の範囲を設定しているのです。
+    // Math.random()だと、小数点が表示されてしまうので、floorで小数点以下を切り捨てる。切り上げだと0がなくなってしまう。
+  let hand_name;
+    // 数字に連携させた文字列(じゃんけんの手)を格納する箱を作る
+
+
+  if(js_hand_num == 0){
+    hand_name = "グー";
+  } else if(js_hand_num == 1){
+    hand_name = "チョキ";
+  } else if(js_hand_num == 2){
+    hand_name = "パー";
+  }
+
+  return hand_name;
+  // 出力したい文字列をhand_nameに入れる → hand_nameはjs_handへ代入される。
+}
+
+// じゃんけんの手を比べる関数
+function winLose(user, js){
+  let winLoseStr;
+
+  if(user == "グー"){
+    if(js == "グー"){
+      winLoseStr = "あいこ";
+    } else if(js == "チョキ"){
+      winLoseStr = "勝ち";
+    } else if(js == "パー"){
+      winLoseStr = "負け";
+    }
+  } else if(user == "チョキ"){
+    if(js == "グー"){
+      winLoseStr = "負け";
+    } else if(js == "チョキ"){
+      winLoseStr = "あいこ";
+    } else if(js == "パー"){
+      winLoseStr = "勝ち";
+    }
+  } else if(user == "パー"){
+    if(js == "グー"){
+      winLoseStr = "勝ち";
+    } else if(js == "チョキ"){
+      winLoseStr = "負け";
+    } else if(js == "パー"){
+      winLoseStr = "あいこ";
+    }
+  }
+
+  return winLoseStr;
+}
