@@ -1,6 +1,11 @@
 .box1 {
-  display: none;
+  /*display: none;*/
   background-color: #FF0000;
   height: 200px;
   width: 200px;
+}
+
+/*要素を追加または解除する方法*/
+.box1-ext {
+  border: 10px solid black;
 }

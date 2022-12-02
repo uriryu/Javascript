@@ -326,3 +326,38 @@
 // slideDownの中のfunctionに、cssで色と大きさを変え、slideUp()をすることで要件を満たすことができる。
 // アニメーションの速度を変える場合はslideDown()の第一引数に数字を入力することで実現できます。
 // 単位はミリ秒なので、1秒の場合は'1000'になります。）
+
+// $(function(){
+//   $('.box1').mouseover(function(){
+//     $('.box1').css({'background-color': '#0000FF'});
+//   });
+// });
+
+// スライドダウン入れてみた。表示しきってから変更できるようにした。
+// $(function(){
+//   $('.box1').slideDown(2000, function(){
+//     $('.box1').mouseover(function(){
+//       $('.box1').css({'background-color': '#0000FF'});
+//     });
+//   });
+// });
+
+// 再び赤に戻る設定。(現在：追加、解除設定にしてある。)
+// $(function(){
+//   $('.box1').mouseover(function(){
+//     $('.box1').addClass('box1-ext');
+//   });
+//   $('.box1').mouseout(function(){
+//     $('.box1').removeClass('box1-ext');
+//   });
+// })
+
+// クリックイベント
+$(function(){
+  $('.box1').on('click', function(){
+    $('.box1').addClass('box1-ext');
+  });
+  $('.box1').mouseout(function(){
+    $('.box1').removeClass('box1-ext');
+  });
+});
