@@ -188,80 +188,141 @@
   // prompt()関数は入力欄に加え、OKとキャンセル両方でる。
 
 
-// prompt()関数でじゃんけんを作る!
-let user_hand = prompt('じゃんけんの手をグー、チョキ、パーから選んでください。');
-// alert('あなたの選んだ手は' + user_hand + "です。");
-while ((user_hand != "グー") && (user_hand != "チョキ") && (user_hand != "パー") && (user_hand != null)){
-  // キャンセルボタンの判定には、nullを用いる
-  alert('グー・チョキ・パーのいずれかを入力してください');
-  user_hand = prompt('じゃんけんの手をグー、チョキ、パーから選んでください。');
-}
-// while文は条件が真である間は繰り返し処理が行われる。
-  // 今回はグー・チョキ・パー・キャンセルでない場合、以下の処理を実行する。
+// // prompt()関数でじゃんけんを作る!
+// let user_hand = prompt('じゃんけんの手をグー、チョキ、パーから選んでください。');
+// // alert('あなたの選んだ手は' + user_hand + "です。");
+// while ((user_hand != "グー") && (user_hand != "チョキ") && (user_hand != "パー") && (user_hand != null)){
+//   // キャンセルボタンの判定には、nullを用いる
+//   alert('グー・チョキ・パーのいずれかを入力してください');
+//   user_hand = prompt('じゃんけんの手をグー、チョキ、パーから選んでください。');
+// }
+// // while文は条件が真である間は繰り返し処理が行われる。
+//   // 今回はグー・チョキ・パー・キャンセルでない場合、以下の処理を実行する。
 
-let js_hand = getJShand();
-let judge = winLose(user_hand, js_hand);
+// let js_hand = getJShand();
+// let judge = winLose(user_hand, js_hand);
 
-// グーチョキパーとキャンセルだった場合さらに、分岐でキャンセルじゃない場合とキャンセルの場合で分ける。
-if (user_hand != null){
-alert('あなたの選んだ手は' + user_hand + 'です。\nJavaScriptの選んだ手は' + js_hand + 'です。\n結果は' + judge + 'です。');
-// \nは改行。
-} else {
-  alert("またチャレンジしてね");
-}
+// // グーチョキパーとキャンセルだった場合さらに、分岐でキャンセルじゃない場合とキャンセルの場合で分ける。
+// if (user_hand != null){
+// alert('あなたの選んだ手は' + user_hand + 'です。\nJavaScriptの選んだ手は' + js_hand + 'です。\n結果は' + judge + 'です。');
+// // \nは改行。
+// } else {
+//   alert("またチャレンジしてね");
+// }
 
-// ランダムでじゃんけんの手を作成する関数
-function getJShand(){
-  let js_hand_num = Math.floor( Math.random() * 3 );
-    // 範囲を決めた乱数を作るときには、「Math.random()」に最大値を掛けることで実現します。
-    // 「0 〜 2」の範囲を作りたい場合、最大値の2をそのまま掛けてしまうと「0 〜 1」の範囲になってしまう。
-    // 最大値に1を足して「3」を掛けることで、「0 〜 2」の範囲を設定しているのです。
-    // Math.random()だと、小数点が表示されてしまうので、floorで小数点以下を切り捨てる。切り上げだと0がなくなってしまう。
-  let hand_name;
-    // 数字に連携させた文字列(じゃんけんの手)を格納する箱を作る
+// // ランダムでじゃんけんの手を作成する関数
+// function getJShand(){
+//   let js_hand_num = Math.floor( Math.random() * 3 );
+//     // 範囲を決めた乱数を作るときには、「Math.random()」に最大値を掛けることで実現します。
+//     // 「0 〜 2」の範囲を作りたい場合、最大値の2をそのまま掛けてしまうと「0 〜 1」の範囲になってしまう。
+//     // 最大値に1を足して「3」を掛けることで、「0 〜 2」の範囲を設定しているのです。
+//     // Math.random()だと、小数点が表示されてしまうので、floorで小数点以下を切り捨てる。切り上げだと0がなくなってしまう。
+//   let hand_name;
+//     // 数字に連携させた文字列(じゃんけんの手)を格納する箱を作る
 
 
-  if(js_hand_num == 0){
-    hand_name = "グー";
-  } else if(js_hand_num == 1){
-    hand_name = "チョキ";
-  } else if(js_hand_num == 2){
-    hand_name = "パー";
-  }
+//   if(js_hand_num == 0){
+//     hand_name = "グー";
+//   } else if(js_hand_num == 1){
+//     hand_name = "チョキ";
+//   } else if(js_hand_num == 2){
+//     hand_name = "パー";
+//   }
 
-  return hand_name;
-  // 出力したい文字列をhand_nameに入れる → hand_nameはjs_handへ代入される。
-}
+//   return hand_name;
+//   // 出力したい文字列をhand_nameに入れる → hand_nameはjs_handへ代入される。
+// }
 
-// じゃんけんの手を比べる関数
-function winLose(user, js){
-  let winLoseStr;
+// // じゃんけんの手を比べる関数
+// function winLose(user, js){
+//   let winLoseStr;
 
-  if(user == "グー"){
-    if(js == "グー"){
-      winLoseStr = "あいこ";
-    } else if(js == "チョキ"){
-      winLoseStr = "勝ち";
-    } else if(js == "パー"){
-      winLoseStr = "負け";
-    }
-  } else if(user == "チョキ"){
-    if(js == "グー"){
-      winLoseStr = "負け";
-    } else if(js == "チョキ"){
-      winLoseStr = "あいこ";
-    } else if(js == "パー"){
-      winLoseStr = "勝ち";
-    }
-  } else if(user == "パー"){
-    if(js == "グー"){
-      winLoseStr = "勝ち";
-    } else if(js == "チョキ"){
-      winLoseStr = "負け";
-    } else if(js == "パー"){
-      winLoseStr = "あいこ";
-    }
-  }
+//   if(user == "グー"){
+//     if(js == "グー"){
+//       winLoseStr = "あいこ";
+//     } else if(js == "チョキ"){
+//       winLoseStr = "勝ち";
+//     } else if(js == "パー"){
+//       winLoseStr = "負け";
+//     }
+//   } else if(user == "チョキ"){
+//     if(js == "グー"){
+//       winLoseStr = "負け";
+//     } else if(js == "チョキ"){
+//       winLoseStr = "あいこ";
+//     } else if(js == "パー"){
+//       winLoseStr = "勝ち";
+//     }
+//   } else if(user == "パー"){
+//     if(js == "グー"){
+//       winLoseStr = "勝ち";
+//     } else if(js == "チョキ"){
+//       winLoseStr = "負け";
+//     } else if(js == "パー"){
+//       winLoseStr = "あいこ";
+//     }
+//   }
 
-  return winLoseStr;
-}
+//   return winLoseStr;
+// }
+
+// タグ内のHTMLを書き換えなさい。とjQueryで指示を出す。
+/*global $*/
+// $(document).ready(function(){
+//   $('body').html('<h1>Hello jQuery!</h1>');
+// });
+
+// 省略形
+// $(function(){
+//   $('body').html('<h1>Hello JQuery!!</h1>');
+// });
+
+// CSSに指示を出す!。
+// $(function(){
+//   $('.box1').css({
+//     'background-color': '#0000FF',
+//     'height': '100px'
+//   });
+// });
+
+// 非表示の要素をjQueryで表示させる!
+// $(function(){
+//   $('.box1').show();
+//   $('.box1').css({'background-color': '#0000FF'});
+// });
+
+// 表示されている要素を非表示にする。
+// $(function(){
+//   $('.box1').slideDown();
+// });
+
+// slideDown();、.slideUp();、.show();、.hide();の4つを使えるようになると、
+// さまざまなスタイルに応用できます。
+// 確認問題
+// $(function(){
+//   $('.box1').slideDown();
+//   $('.box1').css({
+//     'background-color': '#0000FF',
+//     'height': '100px',
+//     'width': '200px'
+//   });
+//   $('.box1').slideUp();
+// });
+
+// ↑これだとslideDownとcssが同時になってしまい、赤が見えない。
+
+// slideDown()の引数にfunctionを書き加えることで、
+// スライドダウンした後にfunctionを実行することができるようになります。
+
+// $(function (){
+//   $('.box1').slideDown(5000, function (){
+//     $('.box1').css({
+//       'background-color': '#0000FF',
+//       'width': '200px',
+//       'height': '100px'
+//     }).slideUp(2000);
+//   });
+// });
+// slideDownの中のfunctionに、cssで色と大きさを変え、slideUp()をすることで要件を満たすことができる。
+// アニメーションの速度を変える場合はslideDown()の第一引数に数字を入力することで実現できます。
+// 単位はミリ秒なので、1秒の場合は'1000'になります。）
