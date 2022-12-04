@@ -353,11 +353,64 @@
 // })
 
 // クリックイベント
-$(function(){
-  $('.box1').on('click', function(){
-    $('.box1').addClass('box1-ext');
-  });
-  $('.box1').mouseout(function(){
-    $('.box1').removeClass('box1-ext');
-  });
-});
+// $(function(){
+//   $('.box1').on('click', function(){
+//     $('.box1').addClass('box1-ext');
+//   });
+//   $('.box1').mouseout(function(){
+//     $('.box1').removeClass('box1-ext');
+//   });
+// });
+
+// Thisを使う。
+// 1つずつ記述すると、クリックイベントとスライドアップを用いて個数分書くことになる。
+// $(function(){
+//   $('.bg1').on('click', function(){
+//     $('.bg1').slideUp();
+//   });
+
+//   $('.bg2').on('click', function(){
+//     $('.bg2').slideUp();
+//   });
+
+//   $('.bg3').on('click', function(){
+//     $('.bg3').slideUp();
+//   });
+
+//   $('.bg4').on('click', function(){
+//     $('.bg4').slideUp();
+//   });
+// });
+
+// // thisは、「クリックされた要素」を指す。this（クリックされた要素）のみslideUpさせる
+// 何をクリックしたときに動作するのか判別しにくいデメリットもあります。
+
+// $(function(){
+//   $('.box1').on('click', function(){
+//     $(this).slideUp();
+//   });
+// });
+
+
+// childrenを使う。HTML要素直下のすべての子要素を取得するときに使う。
+// $(function(){
+//   $('button').on('click', function(){
+//     $('ul').children().css('color', 'red');
+//   });
+// });
+// 黒を赤に変えるだけ。
+
+// 要素、タグに対して、
+// cssにすでに記入されているコードがある場合は({'例' :'例'})という書き方で変更を促す。
+// なにも記述がない場合は、('例', '例')で記述を新規作成する。
+
+// クリックごとに交互に変えたい。↓
+// $(function(){
+//   $('button').on('click', function(){
+//     $('ul').children().toggleClass("is_active");
+//   });
+// });
+// .toggleClass()は、要素に「指定のクラスがあれば削除して、無ければ付ける」事ができるメソッド。
+// つまり、指定のクラスをON/OFFできるメソッドである。Classはcssに記述。
+
+// addClass removeClassを一つにしたイメージ。複数クラス、真偽値や条件式も書ける
