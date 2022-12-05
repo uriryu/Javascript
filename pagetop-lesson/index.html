@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>9章 【トップへ戻る」ボタンを作ってみよう】</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <h1>9章 【トップへ戻る」ボタンを作ってみよう】</h1>
+
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+
+    <!--idにすることで処理速度が速くなる。idは1つしかないため、pcが探す手間が省ける。-->
+    <span id="back">
+      <!--"#"はそのページの最上層へ移動するリンク-->
+      <a href="#">
+        <!--alt=""は""の中身に表示されなかった場合、文章を書いておくとそれが表示される。-->
+        <img src="img/arrow.png" alt="">
+      </a>
+    </span>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
