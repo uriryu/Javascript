@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.box {
+  height: 300px;
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto 50px;
+  background-color: #eee;
+}
+/*ハンバーガーアイコン*/
+#hm-icon {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 10;
+  /*Z軸の順を定義する。z-indexを持つ要素はより小さな要素の上に重なる。*/
+}
+.menu-trigger,
+.menu-trigger span {
+  display: inline-block;
+  transition: all .4s;
+  /*変化をつけるもの　時間指定などできる。*/
+  /*例) font-size: 14px;のとき transition: font-size 4s 1s; hover{ font-size: 36px;*/
+  /*1秒遅延させてから4秒間でフォントサイズを36へ遷移する。*/
+  box-sizing: border-box;
+  /*境界およびパディングを、要素に指定した width および height の中で取るようブラウザーに指示。決めた教会からははみ出さない。*/
+}
+.menu-trigger {
+  position: relative;
+  width: 50px;
+  height: 44px;
+}
+
+.menu-trigger span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #000;
+  border-radius: 4px;
+}
+
+.menu-trigger span:nth-child(1) {
+  top: 0;
+}
+
+.menu-trigger span:nth-child(2) {
+  top: 20px;
+}
+
+.menu-trigger span:nth-child(3) {
+  bottom: 0;
+}
+.menu-trigger.active span:nth-child(1) {
+  -webkit-transform: translateY(20px) rotate(-45deg);
+  transform: translateY(20px) rotate(-45deg);
+  background-color: #fff;
+}
+
+.menu-trigger.active span:nth-child(2) {
+  opacity: 0;
+  /*opacity 不透明度の意味*/
+}
+
+.menu-trigger.active span:nth-child(3) {
+  -webkit-transform: translateY(-20px) rotate(45deg);
+  transform: translateY(-20px) rotate(45deg);
+  background-color: #fff;
+
+  /*-webkitは拡張パッケージみたいな感じ*/
+  /*transformは変形させるもの。与えられた要素を回転、拡大縮小、傾斜、移動することできます。*/
+}
+
+/*spメニュー*/
+#sp-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  color: #fff;
+  width: 100%;
+  min-height: 100%;
+  display: none;
+  z-index: 9;
+}
+
+#sp-menu li {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#sp-menu a {
+  color: #fff;
+  text-decoration: none;
+
+  font-weight: bold;
+  /*文字の太さ*/
+}
+/*jqueryを設定しないとメニューが表示されない! "ハンバーガーアイコン エフェクト"で調べると色々と出てくる!*/
