@@ -32,4 +32,4 @@ $('#tab-menu a').on('click', function(event) {
       // attr()は、checkedの記述があるかどうかを確認する
       // prop()は、checkedの状態（チェックされたかどうか）を確認する。"チェックがないfalse チェックがあるtrueという感じ"。
   event.preventDefault();
-})
+});
