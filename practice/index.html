@@ -1,15 +1,61 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--  <head>-->
+<!--    <meta charset="UTF-8" />-->
+<!--    <meta name="viewport" content="width=device-width,initial-scale=1.0">-->
+<!--    <title>Javascript practice</title>-->
+<!--  </head>-->
+<!--  <body>-->
+<!--    <form>-->
+<!--      <input type="button" value="日時表示" onClick="message()">-->
+<!--    </form>-->
+<!--    <span id="view_time"></span>-->
+<!--    <script src="js/script.js"></script>-->
+<!--  </body>-->
+<!--</html>-->
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Javascript practice</title>
-  </head>
-  <body>
-    <form>
-      <input type="button" value="日時表示" onClick="message()">
-    </form>
-    <span id="view_time"></span>
-    <script src="js/script.js"></script>
-  </body>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>mebeeサンプル</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Tailwind bootstrapとは違うCSSフレームワーク。今回はカスタマイズ可能なv3.x-->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <!--Tailwind CSSのドキュメントでわからないクラスは検索-->
+  <div class="container mx-auto my-56 w-64 px-4">
+
+    <div id="sample" class="flex flex-col justify-center">
+
+      <h1 class="font-semibold text-neutral-500 text-lg mr-auto">実行結果</h1>
+
+      <p id="foo" class="font-semibold text-lg mr-auto"></p>
+
+      <button id="btn" class="mb-2 md:mb-0 bg-transparent hover:bg-lime-500 text-lime-700 font-semibold hover:text-white py-2 px-4 border border-lime-500 hover:border-transparent rounded">
+        実行
+        <!--transparent = 透過-->
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <script>
+  // btn と foo はグローバル変数とし、どこからでも参照できるようにする。
+  /* global btn */
+  /* global foo */
+    window.onload = () => {
+
+      btn.onclick = () => { foo.innerHTML = "hello world" }
+
+    }
+
+  </script>
+
+</body>
+
 </html>
