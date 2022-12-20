@@ -20,3 +20,4 @@ function getNow() {
 
   return s;
 }
+
