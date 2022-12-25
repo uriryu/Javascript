@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Page2</title>
+  </head>
+  <body>
+    <div>
+      <h2>2025年1月カレンダー</h2>
+      <h4>幅はwidthを使おう!</h4>
+      <table width="500">
+        <tr>
+          <td>日</td>
+          <td>月</td>
+          <td>火</td>
+          <td>水</td>
+          <td>木</td>
+          <td>金</td>
+          <td>土</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+          <td>10</td>
+          <td>11</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>13</td>
+          <td>14</td>
+          <td>15</td>
+          <td>16</td>
+          <td>17</td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>19</td>
+          <td>20</td>
+          <td>21</td>
+          <td>22</td>
+          <td>23</td>
+          <td>24</td>
+          <td>25</td>
+        </tr>
+        <tr>
+          <td>26</td>
+          <td>27</td>
+          <td>28</td>
+          <td>29</td>
+          <td>30</td>
+          <td>31</td>
+          <td></td>
+        </tr>
+      </table>
+      <div>
+        <h3>実は1行で書ける</h3>
+        <input type="date" value="2025-01-01">
+      </div>
+      <br>
+      <div>
+        <h2>ジャーマンポテト</h2>
+        <table border="1">
+          <tr>
+            <td rowspan="2">画像</td>
+            <td>
+              <strong>材料</strong>
+              <ul>
+                <li>ジャガイモ　2個</li>
+                <li>玉ねぎ　1個</li>
+                <li>ベーコン　200g</li>
+                <li>パセリ　少々</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong>作り方</strong>
+              <ol>
+                <li>ジャガイモと玉ねぎを薄切りにします</li>
+                <li>ベーコン、ジャガイモ、玉ねぎの順で炒めます</li>
+                <li>塩コショウで味を調えます</li>
+                <li>盛り付けてパセリを振りかけて出来上がり</li>
+              </ol>
+            </td>
+          </tr>
+        </table>
+        <h4>
+          rowspanを使うことで、縦方向に連結される。<br>
+          今回は縦に2つ連結なので、次のtrのtd(1つ目)は2列目から始まる。
+        </h4>
+      </div>
+      <p>colspan(横方向の連結)はこうなる!</p>
+      <table border="1" width="300">
+        <tr>
+          <td colspan="2">画像</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
