@@ -2,6 +2,31 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <style>
+      h2 {
+        color: #0094ff;
+        text-align: center;
+        padding-top: 20px;
+      }
+      td {
+        font-size: 28px;
+        text-align: center;
+        border: 1px solid #ccc;
+      }
+      .red {
+        color: red;
+      }
+      tr:nth-child(1) {
+        font-weight: bold;
+        text-decoration: underline;
+      }
+      td:first-child {
+        color: red;
+      }
+      table {
+        margin: 20px auto;
+      }
+    </style>
     <script>
       function setRGB() {
         let r = document.getElementById("r").value;
@@ -29,7 +54,67 @@
       G:<input type="range" min="0" max="255" id="g" onchange="setRGB()"><br>
       B:<input type="range" min="0" max="255" id="b" onchange="setRGB()">
     </p>
-    <p>getElementByIdは、任意のHTMLタグで指定したIDにマッチするドキュメント要素を取得するメソッド。</p>
+    <p>getElementByIdは、任意のHTMLタグで指定したIDにマッチするドキュメント要素を取得するメソッド</p>
     <p>基本的にIDはドキュメント内で重複してはならない。</p>
+
+    <div>
+      <h2>2025年1月カレンダー</h2>
+      <h4>幅はwidthを使おう!</h4>
+      <table width="500">
+        <tr>
+          <td>日</td>
+          <td>月</td>
+          <td>火</td>
+          <td>水</td>
+          <td>木</td>
+          <td>金</td>
+          <td>土</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+          <td>10</td>
+          <td>11</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td class="red">13</td>
+          <td>14</td>
+          <td>15</td>
+          <td>16</td>
+          <td>17</td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>19</td>
+          <td>20</td>
+          <td>21</td>
+          <td>22</td>
+          <td>23</td>
+          <td>24</td>
+          <td>25</td>
+        </tr>
+        <tr>
+          <td>26</td>
+          <td>27</td>
+          <td>28</td>
+          <td>29</td>
+          <td>30</td>
+          <td>31</td>
+          <td></td>
+        </tr>
+      </table>
   </body>
 </html>
