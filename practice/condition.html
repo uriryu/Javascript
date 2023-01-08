@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      function check() {
+        let a = document.getElementById("i0").value;
+        let b = document.getElementById("i1").value;
+        document.getElementById("r0").textContent = a == b;
+        document.getElementById("r1").textContent = a != b;
+        document.getElementById("r2").textContent = a < b;
+        document.getElementById("r3").textContent = a > b;
+        document.getElementById("r4").textContent = a <= b;
+        document.getElementById("r5").textContent = a >= b;
+      }
+      function Reset() {
+        // window.location.reload();
+        document.sampleform.reset();
+        for (let i = 0; i < 6; ++i) {
+          let text = document.getElementById("r" + i);
+          text.innerHTML = '';
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form name="sampleform">
+      <p>a:<input id="i0"></p>
+      <p>b:<input id="i1"></p>
+    </form>
+    <button onclick="check()">check</button>
+    <button onclick="Reset()">リセット</button>
+    <ul>
+      <li>a == b : <span id="r0"></span></li>
+      <li>a != b : <span id="r1"></span></li>
+      <li>a < b : <span id="r2"></span></li>
+      <li>a > b : <span id="r3"></span></li>
+      <li>a <= b : <span id="r4"></span></li>
+      <li>a >= b : <span id="r5"></span></li>
+    </ul>
+  </body>
+</html>
