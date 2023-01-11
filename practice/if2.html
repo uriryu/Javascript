@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      function update() {
+        let a = document.getElementById("a").checked;
+        let b = document.getElementById("b").checked;
+        let c = document.getElementById("c").checked;
+        document.getElementById("result0").textContent = a && b && c;
+        document.getElementById("result1").textContent = a || b || c;
+      }
+      
+    </script>
+  </head>
+  <body>
+    <h2>AND / OR テスト</h2>
+    <p>
+      A: <input id="a" type="checkbox" onchange="update()">
+      B: <input id="b" type="checkbox" onchange="update()">
+      C: <input id="c" type="checkbox" onchange="update()">
+    </p>
+    <p>
+      A && B && C => <span id="result0"></span><br>
+      A || B || C => <span id="result1"></span><br>
+    </p>
+  </body>
+</html>
