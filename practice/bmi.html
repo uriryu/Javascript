@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      function calcBMI() {
+        let h = document.getElementById("h").value;
+        let w = document.getElementById("w").value;
+        let bmi = w / (h * h);
+        document.getElementById("bmi").textContent = Math.floor(bmi * Math.pow(10, 2)) / Math.pow(10, 2);
+        // 数学的計算をするときは、Mathメソッドを使う。新たにインスタンスを作成せずに計算するため。
+        // .floorは切り捨て .ceilは切り上げ .roundは四捨五入
+        // powメソッドはpow(底,指数)を表し、(底)の(指数)乗をする。今回はbmiを100倍し、100で割ることで小数点第2位までの表示をする式にした。普通に100掛けて、割るでもOK。
+        if (bmi < 18.5) {
+          document.getElementById("result").textContent = "痩せすぎ";
+        } else if (25 <= bmi) {
+          document.getElementById("result").textContent = "肥満";
+        } else {
+          document.getElementById("result").textContent = "標準";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h2>BMI計算機</h2>
+    <p>
+      身長(m): <input id="h">
+      体重(kg): <input id="w">
+    </p>
+    <button onclick="calcBMI()">計測</button>
+    <p>BMI: <span id="bmi"></span></p>
+    <p id="result"></p>
+  </body>
+</html>
