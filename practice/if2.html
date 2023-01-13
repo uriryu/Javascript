@@ -10,7 +10,17 @@
         document.getElementById("result0").textContent = a && b && c;
         document.getElementById("result1").textContent = a || b || c;
       }
-      
+       function clickBtn1() {
+         const array =[];
+         const chk1 = document.form1.chk1;
+         
+         for (let i = 0; i < chk1.length; i++) {
+           if (chk1[i].checked) {
+              array.push(chk1[i].value);
+           }
+         }
+         document.getElementById("span1").textContent = array;
+       }
     </script>
   </head>
   <body>
@@ -24,5 +34,15 @@
       A && B && C => <span id="result0"></span><br>
       A || B || C => <span id="result1"></span><br>
     </p>
+    
+    <div>
+      <p>選択した値<span id="span1"></span></p>
+      <form name="form1">
+        <label><input type="checkbox" name="chk1" value="a" checked />a</label>
+        <label><input type="checkbox" name="chk1" value="b" />b</label>
+        <label><input type="checkbox" name="chk1" value="c" />c</label>
+      </form>
+      <input type="button" value="click" onclick="clickBtn1()">
+    </div>
   </body>
 </html>
