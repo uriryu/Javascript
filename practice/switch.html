@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      function jikkan(year) {
+        let er = "";
+        switch (year % 10) {
+          case 0:
+            er = "庚";
+            break;
+          case 1:
+            er = "辛";
+            break;
+          case 2:
+            er = "壬";
+            break;
+          case 3:
+            er = "癸";
+            break;
+          case 4:
+            er = "甲";
+            break;
+          case 5:
+            er = "乙";
+            break;
+          case 6:
+            er = "丙";
+            break;
+          case 7:
+            er = "丁";
+            break;
+          case 8:
+            er = "戊";
+            break;
+          case 9:
+            er = "己";
+            break;
+        }
+        return er;
+      }
+        function junishi(year) {
+          let er = "";
+          switch (year % 12) {
+          case 0:
+            er = "申";
+            break;
+          case 1:
+            er = "酉";
+            break;
+          case 2:
+            er = "戌";
+            break;
+          case 3:
+            er = "亥";
+            break;
+          case 4:
+            er = "子";
+            break;
+          case 5:
+            er = "丑";
+            break;
+          case 6:
+            er = "寅";
+            break;
+          case 7:
+            er = "卯";
+            break;
+          case 8:
+            er = "辰";
+            break;
+          case 9:
+            er = "巳";
+            break;
+          case 10:
+            er = "午";
+            break;
+          case 11:
+            er = "未";
+            break;
+          // default:
+          // alert("無効です。");
+        }
+        return er;
+        // returnを使うことで、呼び出し関数<今回はcalc()>で制御される。
+        // returnとは、今回はswitchの直後の()に記述した式or変数と同じものがあればそれを返す。
+        // 一致しない場合、デフォルトの式が実行される。デフォルトも定義可能。
+        // 例) default:
+        //        er = "無効です";など alert("無効です。"); => defaultはbreakがいらない。
+      }
+        function calc() {
+          let y = document.getElementById("year").value;
+          let e0 = jikkan(y);
+          let e1 = junishi(y);
+          document.getElementById("y").textContent = y;
+          document.getElementById("e").textContent = e0 + e1;
+          // functionを呼び出したいときは、変数に定義してから呼び出す!
+          // document.getElementById("e").textContent = jikkan(y) + junishi(y);でもOKだかわかりやすくすべき。
+        }
+    </script>
+  </head>
+  <body>
+    <h2><span id="y"></span>年の干支は<span id="e"></span></h2>
+    <p>
+      <input id="year">
+      <button onclick="calc()">計算</button>
+    </p>
+  </body>
+</html>
