@@ -78,8 +78,8 @@
           case 11:
             er = "未";
             break;
-          // default:
-          // alert("無効です。");
+          default:
+            alert("無効です。");
         }
         return er;
         // returnを使うことで、呼び出し関数<今回はcalc()>で制御される。
@@ -105,5 +105,18 @@
       <input id="year">
       <button onclick="calc()">計算</button>
     </p>
+    <div>
+      <h3>ほかのやり方もある!</h3>
+      <p>今回のような余りを求めるだけであれば、配列の0から数える決まりを用いる!</p>
+      <p>
+        function calcEto(year) {<br>
+          let data1 = ["庚","辛","壬","癸","甲","乙","丙","丁","戊","己"]; <br>
+          let data2 = ["申","酉","戌","亥","子","丑","寅","卯","辰","巳","午","未"]; <br>
+          return data1[oarseInt(year) % 10] + data2[parseInt(year) % 12]; <br>
+        }　<br>
+      parseIntは、整数値を返す。文字列を整数にする。<br>
+      inputで入力されたものは文字列として扱われているので、数値として扱うように変換する。
+      </p>
+    </div>
   </body>
 </html>
