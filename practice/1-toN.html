@@ -6,8 +6,11 @@
         function calcSum() {
           let max = document.getElementById("max").value;
           let total = 0;
-          for (let i = 0; i <= max ; i++) {
+          // for (let i = 0; i <= max ; i++) {　forとwhileの違い=>事前に回数が決まってる(for)、決まってない(while)。
+          let i =0 //while 文では初期化式はない。必要な変数の宣言や初期化などは while 文の外に書く。
+          while (i <= max) {
             total += i;
+            i ++;
           }
           document.getElementById("val").textContent = max;
           document.getElementById("sum").textContent = total;
