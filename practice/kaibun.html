@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script>
+      function kaibun() {
+        let result = "";
+        let str = document.getElementById("source").value;
+        for (let i = 0; i < str.length; i++) {
+          let pos = str.length - i - 1;　//i = 0 から始まる => length(0) -1 最後の文字から抜き出す
+          result += str.charAt(pos);　//抜き出した順にresultへ入れていく
+
+          // 文字列の変数.charAt(n)でn番目の文字を取得。
+          // 文字列の先頭は0文字目と見なします（よって、最後の文字は「length() -1」番目で表せる）。
+        }
+        document.getElementById("result").textContent = result;
+      }
+
+      function kaibun2() {
+
+        let str2 = document.getElementById("source2").value;
+        let result2 = str2.split('').reverse().join('');
+        document.getElementById("result2").textContent = result2;
+        if (str2 === result2) {
+          document.getElementById("confirm").textContent = "It is a palindrome!!";
+        } else {
+          document.getElementById("confirm").textContent = "It is not a palindrome.";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <h2>回文</h2>
+      <p>回文とは、上から読んでも、下から読んでも同じになる言葉。</p>
+      <input id="source">
+      <button onclick="kaibun()">回文</button>
+      <p id="result"></p>
+    </div>
+
+    <div>
+      <h2>正しい回文か確認する</h2>
+      <p>配列に入れる方法でやってみる</p>
+      <input id="source2">
+      <button onclick="kaibun2()">回文確認</button>
+      <p id="result2"></p>
+      <p id="confirm"></p>
+      <div>
+        <h2>1つ1つ詳しい説明</h2>
+        <p>
+          let result2 = "";<br>
+          let str2 = document.getElementById("source2").value;<br>
+            <p>入力値をstr2へ入れる</p>
+          let arrayValues = str2.split('');<br>
+            <p>.split('')でseparatorを空文字指定することで、文字列を個々の配列文字にする</p>
+          let reverseArrayValues = arrayValues.reverse();<br>
+            <p>.reverse()配列内の位置を逆にする</p>
+          let reverseString = reverseArrayValues.join('');<br>
+            <p>.join('')で配列のすべてを文字列に結合する</p>
+          document.getElementById("result2").textContent = reverseString;<br>
+            <p>表示する(すべて続けて記入できる。)</p>
+            <p>let result2 = str2.split('').reverse().join('');</p>
+        </p>
+      </div>
+
+    </div>
+  </body>
+</html>
