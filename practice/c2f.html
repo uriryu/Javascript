@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      function c2f(c) {　//()のなかに変数を入れる。直接使う関数でないときに! => 今回は、convert()でvalueを取り、代入する。
+        let f = c * (9 / 5) + 32;
+        return Math.floor(f);
+        // 小数点もすべて入れたいとき.abs()を使うといい。ただし、絶対値なので＋のみになる。
+
+        // return を用いて計算したものを"箱"にいれてあげないと、後の関数で表示などしたいときに計算しただけで、
+        // ものがどこにもない状態になる。　NaNやundefinedになる。 自分は忘れがち。
+      }
+
+      function convert() {
+        let c = document.getElementById("celsius").value;
+        let f = c2f(c);
+        let s = "摂氏:" + c + "度　華氏:" + f + "度";
+        document.getElementById("result").textContent = s;
+      }
+    </script>
+  </head>
+  <body>
+     <h2>摂氏から華氏へ変換する</h2>
+     <p>数式: (摂氏 * 9 / 5) + 32 = 華氏 </p>
+     <div>
+       <input id="celsius" type="range" min="0" max="100" onchange="convert()">
+       <p id="result"></p>
+     </div>
+     <p>onchangeイベントはHTML要素の値の変更が完了した時に発生するイベント。</p>
+  </body>
+</html>
