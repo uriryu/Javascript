@@ -23,6 +23,15 @@
         document.getElementById("length").textContent = pen2.length;
         // document.getElementById("color").textContent = pen2.color;
       }
+      let car = {
+        speed: 50,
+        fuel: 100,
+      };
+
+      function createCar() {
+        document.getElementById("speed").textContent = car.speed;
+        document.getElementById("fuel").textContent = car.fuel;
+      }
     </script>
   </head>
   <body>
@@ -32,12 +41,18 @@
         鉛筆の長さは<span id="length"></span>cm<!--, 色は<span id="color"></span>です。-->
       </p>
     </div>
+
     <div>
       <input id="source" type="range" min="0" max="30" onchange="penLength()"><span id="value"></span>
       <!--type="range"を使いたい場合は、onchange="関数"を追加する。=> 関数の中に"value"を設定しているため。-->
       <!--<button onclick="penLength()">ペンの長さ入力</button>-->
     </div>
 
-
+    <div>
+      <button onclick="createCar()">車作成</button>
+      <p>
+        現在の時速<span id="speed"> x </span>km/h, ガソリン量<span id="fuel"> y </span>(L)です。
+      </p>
+    </div>
   </body>
 </html>
