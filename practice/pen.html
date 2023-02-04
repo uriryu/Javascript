@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script>
+      function Pen(color, length) {
+        this.color = color;
+        this.length = length;
+        this.draw = function () {
+          this.length -= 1;
+        };
+      }
+
+      let penR = new Pen("red", 15);
+      let penG = new Pen("green", 20);
+      let penB = new Pen("blue", 8);
+      let pen = penR;　//stroke()関数に使うため、初期値として記述。
+
+
+      function writting() {
+        pen.draw();
+        let pencil = document.getElementById("pencil");
+        pencil.style.width = pen.length + "cm";
+        pencil.style.backgroundColor = pen.color;
+        pencil.textContent = "色＝" + pen.color + ",長さ＝" + pen.length;
+      }
+
+// let pencil以下の文をまとめたものを作ってみた!。
+      function initial() {
+        let pencil = document.getElementById("pencil");
+        pencil.style.width = pen.length + "cm";
+        pencil.style.backgroundColor = pen.color;
+        pencil.textContent = "色＝" + pen.color + ",長さ＝" + pen.length;
+      }
+
+
+      function pickR() {
+        pen = penR;
+        initial();
+      }
+      function pickG() {
+        pen = penG;
+        initial();
+      }
+      function pickB() {
+        pen = penB;
+        initial();
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="pickR()">赤を選ぶ</button>
+    <button onclick="pickG()">緑を選ぶ</button>
+    <button onclick="pickB()">青を選ぶ</button>
+    <button onclick="writting()">書く</button>
+
+    <p id="pencil" style="color: white; background-color: black; width: 5cm;">初期値</p>
+  </body>
+</html>
