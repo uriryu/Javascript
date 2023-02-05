@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script>
+      let colors = ["red", "blue", "green", "yellow", "purple"];
+      let index = 0;
+
+      function insert() {
+        let parent = document.getElementById("mylist");
+        let item = document.createElement("li");
+        item.textContent = colors[index];
+        item.style.color = colors[index];
+        index = ++index % colors.length;
+        // 前置インクリメントのため、既に1を足された状態のindexとなる。
+        // index++　の後置インクリメントはindexの数値を先に入れてしまい、そのあと1を足す。
+        // そのため、1が足されずにずっと0 % 5が続くことになる。
+        // % colors.lengthを入れることにより、余りを求める。
+        // ++indexが5になったときlengthの５で割って0になるので、ループになる。
+        // 1 % 5, 2 % 5 などは商が0となり、余りが前の数字となる。
+        parent.appendChild(item);
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="insert()">挿入</button>
+    <ol id="mylist"></ol>
+    <div>
+      <h3>余りの計算について</h3>
+      <p>
+        <span style="color:red;"><重要></span>小数点以下はないものとする!<br>
+        a / b = c ・・・d　dは余り。 <br>
+        a = b * c + 3 <br>
+        商 = c, 余り = d <br>
+        今回は 1 / 5 = 0・・・1 <br>
+        5 / 5 = 1・・・0 のときindex = 0に戻るので、また配列番号0から"もの"を引き出すループとなる。
+      </p>
+    </div>
+  </body>
+</html>
