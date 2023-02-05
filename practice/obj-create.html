@@ -12,8 +12,10 @@
         item.textContent = colors[index];
         item.style.color = colors[index];
         index = ++index % colors.length;
-        // 前置インクリメントのため、既に1を足された状態のindexとなる。
+        // 1回目は0のまま通している。もう1度するとインクリメントがされる。
+        // y = ++x;  //「++x; の後に y = x;」と同じ
         // index++　の後置インクリメントはindexの数値を先に入れてしまい、そのあと1を足す。
+        // b = a++;  //「b = a; の後に a++;」と同じ
         // そのため、1が足されずにずっと0 % 5が続くことになる。
         // % colors.lengthを入れることにより、余りを求める。
         // ++indexが5になったときlengthの５で割って0になるので、ループになる。
