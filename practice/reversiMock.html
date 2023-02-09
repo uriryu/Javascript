@@ -10,6 +10,7 @@
         background-color :green;
         width: 30px;
         height: 30px;
+        text-align: center;
       }
     </style>
     <script>
@@ -42,7 +43,7 @@
       let tictac = ["●", "×"];
       let index = 0;
       function clicked(e) {
-        document.getElementById("info").textContent = e.target.id + "clicked";
+        // document.getElementById("info").textContent = e.target.id + "clicked";
         let item = e.target;
         item.textContent = tictac[index];
         index = ++index % tictac.length;
@@ -55,13 +56,27 @@
   <body onload="init()">
     <h2>五目並べ</h2>
     <table id="board"></table>
-    <h2 id="info"></h2>
+    <!--<h2 id="info"></h2>-->
     <div>
       <button onclick="reset()">消す</button>
     </div>
     <div>
       <h2>●×ゲーム</h2>
       <table id="board2"></table>
+      <h3>if文を用いて交互に●×を表記する方法</h3>
+      <p>
+        let count = 0; <br>
+        if ( count++ % 2 == 0) {<br>
+          e.target.textContent = "●";<br>
+        } else {<br>
+          e.target.textContent = "×";<br>
+        }
+      </p>
+      <p>
+        後置インクリメントにより計算後に＋１される<br>
+        0 % 2 は計算すると余りは0 => 0 / 2 = 0 ・・・0<br>
+        1 % 2 は余りが1 => 1 / 2 = 0 ・・・1となる（前回のObj-createでやった。）
+      </p>
     </div>
   </body>
 </html>
