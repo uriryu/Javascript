@@ -15,6 +15,7 @@
     </style>
     <script>
       function init() {
+        // 8x8マス
         let b = document.getElementById("board");
         for (let i = 0; i < 8; i++) {
           let tr = document.createElement("tr");
@@ -27,6 +28,7 @@
           }
           b.appendChild(tr);
         }
+        // 3x3マス
         let b2 = document.getElementById("board2");
         for (let g = 0; g < 3; g++) {
           let tr = document.createElement("tr");
