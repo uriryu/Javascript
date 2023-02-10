@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <script>
       let timerId = NaN;
+      // 今回先に関数外で定義するのはfunctionを1つずつ分けているから!
+      // 変数スコープの広域変数とすることで、どこからでも参照ができる。
       let count = 0;
       function startTimer() {
         timerId = setInterval(tick, 1000);
@@ -21,5 +23,38 @@
     <button onclick="startTimer()">スタート</button>
     <button onclick="stopTimer()">ストップ</button>
     <h2 id="counter"></h2>
+    <h3>NaNについて</h3>
+    <p>
+      Not-a-Numberの略で、JavaScriptにおける非数（数字ではないもの）を表す、特別な値。<br>
+      NaNとは先述した通り「値」ということです。なので、typeof演算子でNaNのデータ型を調べるとNumberと返ってきます。<br>
+      値は非数を表すものの、Infinityなどと同じようにNumber型に属している値。
+    </p>
+
+    <p>
+      クリック回数によって処理を分岐させる方法<br>
+      1つのボタンで作ってみる。
+      let clickCount = 0<br>
+      let timer = null<br>
+      const timeout = 1500<br>
+      const hogeElement = document.getElementById('hogeElement')<br>
+
+      // クリック回数によって動作を分岐<br>
+      hogeElement.addEventListener('click', () => {<br>
+          clickCount += 1<br>
+          if (clickCount === 1) {<br>
+              timer = setTimeout(() => {<br>
+                  if (clickCount >= 5) {<br>
+                      console.log('5回以上クリックした！')<br>
+                  }<br>
+                  if (clickCount === 1) {<br>
+                      console.log('1回クリックした！')<br>
+                  }<br>
+                  timer = null<br>
+                  clickCount = 0<br>
+              }, timeout)<br>
+          }<br>
+      })<br>
+      clickcount % 2 == 0 のときストップ、それ以外はスタートにする。
+    </p>
   </body>
 </html>
