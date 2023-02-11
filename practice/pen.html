@@ -29,7 +29,7 @@
       function initial() {
         let pencil = document.getElementById("pencil");
         pencil.style.width = pen.length + "cm";
-        pencil.style.backgroundColor = pen.color;
+        pencil.style.backgroundColor = pen.color; 
         //cssではbackground-colorと"-(ハイフン)"を使っている。
         //js内で記述する場合、単語が変わるところで"大文字"にする!。
         pencil.textContent = "色＝" + pen.color + ",長さ＝" + pen.length;

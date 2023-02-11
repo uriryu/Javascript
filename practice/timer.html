@@ -17,12 +17,29 @@
         count++;
         document.getElementById("counter").textContent = count;
       }
+      let clickCount = 0;
+      let c =0;
+      function startStop(){
+          clickCount += 1;
+          if(clickCount === 1) {
+            c += 1;
+            if(c % 2 == 0) {
+              stopTimer();
+              clickCount = 0;
+              c = 0;
+            } else {
+              startTimer();
+              clickCount = 0;
+            }
+          }
+      }
     </script>
   </head>
   <body>
     <button onclick="startTimer()">スタート</button>
     <button onclick="stopTimer()">ストップ</button>
     <h2 id="counter"></h2>
+    <button onclick="startStop()">スタート/ストップ</button>
     <h3>NaNについて</h3>
     <p>
       Not-a-Numberの略で、JavaScriptにおける非数（数字ではないもの）を表す、特別な値。<br>
@@ -30,9 +47,12 @@
       値は非数を表すものの、Infinityなどと同じようにNumber型に属している値。
     </p>
 
+    <h3>※functionを使わずにクリック回数によって処理を分岐させる方法</h3>
     <p>
-      クリック回数によって処理を分岐させる方法<br>
-      1つのボタンで作ってみる。
+      "onclick"と"id指定のaddEventListener"は同じイベント処理をするもの。<br>
+      同時には使用しない。<br>
+    </p>
+    <div>
       let clickCount = 0<br>
       let timer = null<br>
       const timeout = 1500<br>
@@ -42,19 +62,22 @@
       hogeElement.addEventListener('click', () => {<br>
           clickCount += 1<br>
           if (clickCount === 1) {<br>
-              timer = setTimeout(() => {<br>
-                  if (clickCount >= 5) {<br>
-                      console.log('5回以上クリックした！')<br>
-                  }<br>
-                  if (clickCount === 1) {<br>
-                      console.log('1回クリックした！')<br>
-                  }<br>
-                  timer = null<br>
-                  clickCount = 0<br>
-              }, timeout)<br>
+            timer = setTimeout(() => {<br>
+              if (clickCount >= 5) {<br>
+                console.log('5回以上クリックした！')<br>
+              }<br>
+              if (clickCount === 1) {<br>
+                console.log('1回クリックした！')<br>
+              }<br>
+              timer = null<br>
+              clickCount = 0<br>
+            }, timeout)<br>
           }<br>
       })<br>
       clickcount % 2 == 0 のときストップ、それ以外はスタートにする。
-    </p>
+
+    </div>
+
+
   </body>
 </html>
